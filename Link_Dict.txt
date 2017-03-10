@@ -1,0 +1,9 @@
+Activity Intraday Time Series
+
+Steps		'https://api.fitbit.com/1/user/-/activities/steps/date/' + date + '/1d/1min/time/00:00/23:59.json'
+Distance	'https://api.fitbit.com/1/user/-/activities/distance/date/' + date + '/1d/1min/time/00:00/23:59.json'
+Floors		'https://api.fitbit.com/1/user/-/activities/floors/date/' + date + '/1d/1min/time/00:00/23:59.json'
+Elevation	'https://api.fitbit.com/1/user/-/activities/elevation/date/' + date + '/1d/1min/time/00:00/23:59.json'
+
+Heart Rate Intraday Time Series
+HR		'https://api.fitbit.com/1/user/-/activities/heart/date/' + date + '/1d/1sec/time/00:00/23:59.json'
