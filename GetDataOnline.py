@@ -1,13 +1,15 @@
 import json
 from time import sleep
+from SendEmail import SendEmail
 
 import pandas as pd
 import requests
+from URL_Dict import *
 
-def GetDataOnline(start_date= '2017-03-08',end_date= '2017-03-09'):
+def GetDataOnline(type,start_date= '2017-03-08',end_date= '2017-03-09'):
 
     # put the token for your app in between the single quotes
-    token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1M1E5RjgiLCJhdWQiOiIyMjhCVk4iLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyc29jIHJzZXQgcmFjdCBybG9jIHJ3ZWkgcmhyIHJudXQgcnBybyByc2xlIiwiZXhwIjoxNDg5MjAxNjc2LCJpYXQiOjE0ODg1OTY4Nzd9.dFUm4JL7l54oGQy1ABzbSQwhKof_E-XumPv6NdrN4JU'
+    token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1M1E5RjgiLCJhdWQiOiIyMjhCVk4iLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyc29jIHJzZXQgcmFjdCBybG9jIHJ3ZWkgcmhyIHJudXQgcnBybyByc2xlIiwiZXhwIjoxNDg5ODM5NzY1LCJpYXQiOjE0ODkyMzQ5Njd9.jD5oUwLv3PmQ5RWG5mJ9T_4zXTMPZ6ihRVd7TXqmomk'
 
     # make a list of dates
     # ref: http://stackoverflow.com/questions/993358/creating-a-range-of-dates-in-python
@@ -25,18 +27,20 @@ def GetDataOnline(start_date= '2017-03-08',end_date= '2017-03-09'):
     '''
     for ts in datelist:
         date = ts.strftime('%Y-%m-%d')
-        url = 'https://api.fitbit.com/1/user/-/activities/steps/date/' + date + '/1d/1min/time/00:00/23:59.json'
-        filename = 'HR'+ date +'.json'
+        url = URL_Dict[type+'1'] + date + URL_Dict[type+'2']
+        filename = type + date +'.json'
+        writefilename='./json_file/'+type+'/'+filename
         response = requests.get(url=url, headers={'Authorization':'Bearer ' + token})
 
         if response.ok:
-            with open(filename, 'w') as f:
+            with open(writefilename, 'w') as f:
 
                 BYtes=response.content
                 STring=BYtes.decode("utf-8")
                 json.dump(STring,f)
             print (date + ' is saved!')
-            sleep(30)
+            sleep(35)
         else:
             print ('The file of %s is not saved due to error!' % date)
-            sleep(30)
+            SendEmail('The file of %s is not saved due to error!' % date)
+            sleep(35)

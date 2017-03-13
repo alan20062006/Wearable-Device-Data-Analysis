@@ -1,0 +1,15 @@
+URL_Dict={'steps1':'https://api.fitbit.com/1/user/-/activities/steps/date/',
+          'steps2':'/1d/1min/time/00:00/23:59.json',
+          'distance1':'https://api.fitbit.com/1/user/-/activities/distance/date/',
+          'distance2':'/1d/1min/time/00:00/23:59.json',
+          'floors1':'https://api.fitbit.com/1/user/-/activities/floors/date/',
+          'floors2':'/1d/1min/time/00:00/23:59.json',
+          'elevation1':'https://api.fitbit.com/1/user/-/activities/elevation/date/',
+          'elevation2':'/1d/1min/time/00:00/23:59.json',
+          'calories1':'https://api.fitbit.com/1/user/-/activities/calories/date/',
+          'calories2':'/1d/1min/time/00:00/23:59.json',
+          'heartrate1':'https://api.fitbit.com/1/user/-/activities/heart/date/',
+          'heartrate2':'/1d/1sec/time/00:00/23:59.json',
+          'sleep1':'https://api.fitbit.com/1/user/-/sleep/date/',
+          'sleep2':'.json'
+}
