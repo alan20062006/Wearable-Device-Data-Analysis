@@ -1,10 +1,10 @@
 from GetDataOnline import GetDataOnline
 from URL_Dict import *
 
-start_date = '2016-11-28'
-end_date = '2017-03-10'
+start_date = '2016-12-02'
+end_date = '2016-12-02'
 
-type='calories'
+type='sleep'
 GetDataOnline(type,start_date,end_date)
 
 #Type=['steps','distance','floors','elevation','calories','heartrate','sleep']
