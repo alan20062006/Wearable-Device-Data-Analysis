@@ -24,5 +24,8 @@ def GetRoundTime(type,start_date = '2016-11-28',end_date = '2017-04-03'):
 
         file.to_csv(csvfilename,index=False)
 
-type='heartrate'
-GetRoundTime(type)
+Type=['steps','distance','floors','elevation','heartrate','sleep','calories']
+for type in Type:
+    GetRoundTime(type)
+#type='heartrate'
+#GetRoundTime(type)
