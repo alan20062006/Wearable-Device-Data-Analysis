@@ -3,7 +3,7 @@ import json
 import pandas as pd
 
 
-def Json2CSV(type,start_date = '2017-03-29',end_date = '2017-04-03'):
+def Json2CSV(type,start_date = '2017-03-29',end_date = '2017-03-29'):
     datelist = pd.date_range(start = pd.to_datetime(start_date),
                              end = pd.to_datetime(end_date)).tolist()
     #f=open("HeartSample.json", encoding='utf-8')        #Open DataSample
@@ -45,7 +45,7 @@ def Json2CSV(type,start_date = '2017-03-29',end_date = '2017-04-03'):
             if not (type == 'sleep' and sleeplistlabel == 0):
                 dict_writer.writerows(Dataset)
 
-Type=['steps','distance','floors','elevation','heartrate','sleep']
-for type in Type:
-    Json2CSV(type)
-#Json2CSV('calories')
+#Type=['steps','distance','floors','elevation','heartrate','sleep']
+#for type in Type:
+#    Json2CSV(type)
+Json2CSV('heartrate')
