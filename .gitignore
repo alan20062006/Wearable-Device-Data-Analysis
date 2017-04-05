@@ -1,2 +1,3 @@
 .idea
 __pycache__/TimeClass.cpython-36.pyc
+*.pyc
