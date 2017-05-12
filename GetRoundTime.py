@@ -1,7 +1,7 @@
 import pandas as pd
 from TimeClass import TimeClass
 import time as tm
-def GetRoundTime(type,start_date = '2016-11-28',end_date = '2017-04-03'):
+def GetRoundTime(type,start_date = '2017-04-04',end_date = '2017-05-10'):
     datelist = pd.date_range(start=pd.to_datetime(start_date),
                              end=pd.to_datetime(end_date)).tolist()
     for ts in datelist:
@@ -21,9 +21,11 @@ def GetRoundTime(type,start_date = '2016-11-28',end_date = '2017-04-03'):
         for i in index:
             time=TimeClass(file.time.values[i])        #now time is a TimeClass
             sec=time.getsec()
-            '''if sec % 5:
+
+            if sec % 5:
                 sec=(sec//5+1)*5
-            time.sec=sec'''                             #uncomment those lines if you want to round time
+            time.sec=sec                             #uncomment those lines if you want to round time
+
             min=time.getmin()
             hour=time.gethour()
 

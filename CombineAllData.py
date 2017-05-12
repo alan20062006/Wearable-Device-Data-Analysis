@@ -2,12 +2,12 @@ import pandas as pd
 import numpy as np
 
 start_date = '2016-11-28'
-end_date = '2017-04-03'
+end_date = '2017-05-08'
 Type=['steps','distance','floors','elevation','heartrate','sleep','calories']
 
 datelist = pd.date_range(start = pd.to_datetime(start_date),end = pd.to_datetime(end_date)).tolist()
 OuterFrame=[]
-#InnerFrame=[]
+InnerFrame=[]
 for ts in datelist:
     date = ts.strftime('%Y-%m-%d')
     year=date[0]*10+date[1]
@@ -38,12 +38,12 @@ for ts in datelist:
     allme=pd.merge(allme,sleep,how='outer',on='time')
     allme=pd.merge(allme,cal,how='outer',on='time')
 
-    '''innerme=pd.merge(heart,steps,how='inner',on='time')
-    innerme=pd.merge(innerme,dist,how='inner',on='time')
-    innerme=pd.merge(innerme,floors,how='inner',on='time')
-    innerme=pd.merge(innerme,elev,how='inner',on='time')
-    innerme=pd.merge(innerme,sleep,how='inner',on='time')
-    innerme=pd.merge(innerme,cal,how='inner',on='time')'''
+    '''innerme=pd.merge(heart,steps,on='time')
+    innerme=pd.merge(innerme,dist,on='time')
+    innerme=pd.merge(innerme,floors,on='time')
+    innerme=pd.merge(innerme,elev,on='time')
+    innerme=pd.merge(innerme,sleep,on='time')
+    innerme=pd.merge(innerme,cal,on='time')'''
 
     OuterFrame.append(allme)
     #InnerFrame.append(innerme)
@@ -51,5 +51,5 @@ for ts in datelist:
 OuterData=pd.concat(OuterFrame)
 #InnerData=pd.concat(InnerFrame)
 
-#InnerData.to_csv('AllData.csv')
 OuterData.to_csv('AllOuterData.csv')
+#InnerData.to_csv('AllData.csv')

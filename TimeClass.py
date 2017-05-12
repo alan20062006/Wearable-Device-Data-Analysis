@@ -22,6 +22,7 @@ class TimeClass(object):
                 self.hour += 1
         return self.gettimestr()
 
+
     def istrue(self):                   #whether the time is in the range of 24 hrs
         if self.hour > 23:
             return False

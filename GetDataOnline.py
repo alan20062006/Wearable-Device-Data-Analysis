@@ -9,7 +9,7 @@ from URL_Dict import *
 def GetDataOnline(type,start_date= '2017-03-08',end_date= '2017-03-09'):
 
     # put the token for your app in between the single quotes
-    token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1M1E5RjgiLCJhdWQiOiIyMjhDWlciLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyc29jIHJzZXQgcmFjdCBybG9jIHJ3ZWkgcmhyIHJudXQgcnBybyByc2xlIiwiZXhwIjoxNDkxMzY5NTQzLCJpYXQiOjE0OTA3NjQ3NDN9.21bThJ4nU6zaxcK068E1AvZzcqH0z6KS8z1eq8Eq26o'
+    token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1M1E5RjgiLCJhdWQiOiIyMjhCVk4iLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyc29jIHJzZXQgcmFjdCBybG9jIHJ3ZWkgcmhyIHJudXQgcnBybyByc2xlIiwiZXhwIjoxNDk1MDkyNzE4LCJpYXQiOjE0OTQ0ODc5MTh9.0rqL1ZRpt03sD8YBg8X4PqOkyQ9kwIgNDgnH4GKgwAE'
 
     # make a list of dates
     # ref: http://stackoverflow.com/questions/993358/creating-a-range-of-dates-in-python
@@ -38,7 +38,7 @@ def GetDataOnline(type,start_date= '2017-03-08',end_date= '2017-03-09'):
                 BYtes=response.content
                 STring=BYtes.decode("utf-8")
                 json.dump(STring,f)
-            print (date + ' is saved!')
+            print (type + date + ' is saved!')
             sleep(35)
         else:
             print ('The file of %s is not saved due to error!' % date)
